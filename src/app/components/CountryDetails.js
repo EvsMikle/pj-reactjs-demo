@@ -20,7 +20,7 @@ const CountryDetails = ({ data }) => {
 
     if (results) {
         return (
-            <div className="max-w-3xl mx-auto my-8 p-4  ">
+            <div className="max-w-3xl mx-auto my-8 p-4  flex flex-col gap-3 ">
                 <input
                     type="text"
                     placeholder="Search country..."
@@ -28,9 +28,11 @@ const CountryDetails = ({ data }) => {
                     onChange={(e) => setSearch(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded mb-4 focus:outline-none focus:border-blue-500"
                 />
-                {results.map((country, index) => (
-                    <CountryCard key={index} countryData={country} />
-                ))}
+                <div className='w-full flex flex-col gap-1 mx-auto'>
+                    {results.map((country, index) => (
+                        <CountryCard key={index} countryData={country} />
+                    ))}
+                </div>
             </div>
         )
     }
